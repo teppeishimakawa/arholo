@@ -1,0 +1,97 @@
+<!--
+Copyright © 2015-2017 A-Frame authors.
+Released under the MIT license
+https://opensource.org/licenses/mit-license.php
+
+//AR.js
+Copyright 2017 Jerome Etienne
+Released under the MIT license
+https://opensource.org/licenses/mit-license.php
+-->
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="stylesheet" href="style.css" />
+<title>My first VR site</title>
+<script src="./js/aframe-v0.8.2.min.js"></script>
+<!-- script src="./js/animation-mixer.js"></script>
+gltfアニメ再生用-->
+<script src="./js/aframe-extras.loaders.min.js"></script>
+
+</head>
+
+<body class="a-body">
+ <a-scene inspector="" renderer="antialias:true;gammaOutput:true;physicallyCorrectLights:true" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui="" >
+
+
+
+
+<a-assets>
+<a-asset-item id="man" src="./3d/soldier_ani.gltf"></a-asset-item>
+</a-assets>
+
+<!-- マーカーを登録（デフォルトで設定されている「hiro」マーカー） -->
+
+<a-entity gltf-model="./3d/soldier_ani.gltf" id="test" scale="0.3 0.3 0.3" position="0.5 0 -3" rotation="0 270 0" animation-mixer=""></a-entity>
+
+
+<a-sky color="#ddd" material="" geometry=""></a-sky>
+
+
+<!-- directional light shining from the top left. -->
+<a-light color="white" position="-1 1 0" intensity="3" ></a-light>
+
+<!-- point light, 5 meters in the air. -->
+<a-light type="point" color="white" position="0 5 0" intensity="3"></a-light>
+
+<!-- Dim ambient lighting. -->
+<!--a-light type="ambient" color="#white" intensity="3" light=""></a-light-->
+
+<a-camera position="0 0 0" camera="" rotation="" look-controls="" wasd-controls="" data-aframe-inspector-original-camera="">
+<a-cursor material="" raycaster="" cursor="" geometry=""></a-cursor>
+
+</a-camera>
+
+<script>
+var el=document.getElementById("test");
+el.addEventListener("mouseenter",function(){
+el.setAttribute('scale', {x: 0.25, y: 0.25, z: 0.25});
+});
+
+el.addEventListener('mouseleave',function() {
+el.setAttribute('scale', {x: 0.1, y: 0.1, z: 0.1});
+});
+</script>
+
+
+
+
+  <!--
+<a-box id="target1" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+<a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+<a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+<a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+
+
+  animationしたい場合は対象オブジェクト内に以下のように記述。
+    a-animation attribute="rotation" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
+
+  注視点でインタラクティブ性持たせる際は以下をa-camera内に記述。
+  <a-camera position="0 1.8 4">
+  <a-cursor visible="true" scale="2" color="#4CC3D9" offset="2" maxdistance="100" opacity="0.5"></a-cursor>
+  </a-camera>
+
+  <a-cube id="target1" color="#666" position="-1 0 0" rotation="0 0 0">
+    <a-mouseenter color="#066"></a-mouseenter>
+  </a-cube>
+
+  <a-cube id="target2" color="#666" position="1 0 0">
+  </a-cube>
+ -->
+
+
+</a-scene></body></html>
