@@ -28,49 +28,25 @@ gltfアニメ再生用-->
  <a-scene inspector="" renderer="antialias:true;gammaOutput:true;physicallyCorrectLights:true" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui="" embedded arjs="debugUIEnabled:false;">
 
 
-
-
 <a-assets>
-<a-asset-item id="man" src="./3d/soldier_ani.gltf"></a-asset-item>
 </a-assets>
 
-<!-- マーカーを登録（デフォルトで設定されている「hiro」マーカー） -->
+<!-- マーカーを登録（hololo testマーカー） -->
 <a-marker preset='custom' type='pattern' url="./pattern-marker.patt">
-a-marker 
-
-<a-entity gltf-model="./3d/soldier_ani.gltf" id="test" scale="0.3 0.3 0.3" position="0 0 0" rotation="0 270 0" animation-mixer=""></a-entity>
-
+<a-entity link="href: https://www.google.co.jp"></a-entity>
 </a-marker>
 
-
-
-
 <!-- directional light shining from the top left.-->
-<a-light color="white" position="-1 1 0" intensity="3" ></a-light>
+<!-- a-light color="white" position="-1 1 0" intensity="3" ></a-light-->
 
 <!-- point light, 5 meters in the air.-->
-<a-light type="point" color="white" position="0 5 0" intensity="3"></a-light>
-
+<!--a-light type="point" color="white" position="0 5 0" intensity="3"></a-light-->
 
 <!-- Dim ambient lighting. -->
 <!--a-light type="ambient" color="#white" intensity="3" light=""></a-light-->
-
 <a-entity camera>
 <a-cursor></a-cursor>
 </a-entity>
-
-<script>
-var el=document.getElementById("test");
-el.addEventListener("mouseenter",function(){
-el.setAttribute('scale', {x: 0.25, y: 0.25, z: 0.25});
-});
-
-el.addEventListener('mouseleave',function() {
-el.setAttribute('scale', {x: 0.1, y: 0.1, z: 0.1});
-});
-</script>
-
-
 
 
   <!--
@@ -95,6 +71,5 @@ el.setAttribute('scale', {x: 0.1, y: 0.1, z: 0.1});
   <a-cube id="target2" color="#666" position="1 0 0">
   </a-cube>
  -->
-
 
 </a-scene></body></html>
